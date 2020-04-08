@@ -104,7 +104,7 @@ export const getNextRoute = (list, route) => {
     const index = list.findIndex(item => routeEqual(item, route))
     const routeJson = JSON.parse(localStorage.routeData)
     if (routeJson.name === 'home' || routeJson.name !== route.name) {
-      return res = routeJson
+      res = routeJson
     } else {
       if (index === list.length - 1)
         res = list[list.length - 2]
@@ -112,6 +112,7 @@ export const getNextRoute = (list, route) => {
         res = list[index + 1]
     }
   }
+  console.log(res);
   return res
 }
 
