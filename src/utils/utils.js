@@ -96,13 +96,21 @@ export const getUnion = (arr1, arr2) => {
  */
 
 export const getNextRoute = (list, route) => {
+  console.log(route);
   let res = {}
   if (list.length === 2) {
     res = getHomeRoute(list)
   } else {
     const index = list.findIndex(item => routeEqual(item, route))
-    if (index === list.length - 1) res = list[list.length - 2]
-    else res = list[index + 1]
+    const routeJson = JSON.parse(localStorage.routeData)
+    if (routeJson.name === 'home' || routeJson.name !== route.name) {
+      return res = routeJson
+    } else {
+      if (index === list.length - 1)
+        res = list[list.length - 2]
+      else
+        res = list[index + 1]
+    }
   }
   return res
 }
@@ -112,7 +120,7 @@ export const getNextRoute = (list, route) => {
  * @param homeName
  * @description 用于找到路由列表中name为home的对象
  */
-export const getHomeRoute = (routers, homeName= 'home') => {
+export const getHomeRoute = (routers, homeName = 'home') => {
   let i = -1
   let len = routers.length
   let homeRoute = {}

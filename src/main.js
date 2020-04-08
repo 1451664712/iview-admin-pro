@@ -78,24 +78,24 @@ router.beforeEach((to, from, next) => {
         removeToken()
         window.location.reload()
       } else {
-        ViewUI.LoadingBar.start();
+        // ViewUI.LoadingBar.start();
         next()
       }
     } else {
-      ViewUI.LoadingBar.start();
+      // ViewUI.LoadingBar.start();
       next({
         path: '/',
         query: {redirect: to.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由
       })
     }
   } else {
-    ViewUI.LoadingBar.start();
+    // ViewUI.LoadingBar.start();
     next()
   }
 })
 
 router.afterEach(route => {
-  ViewUI.LoadingBar.finish();
+  // ViewUI.LoadingBar.finish();
 });
 
 Vue.use(VueRouter);

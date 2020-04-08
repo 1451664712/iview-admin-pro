@@ -28,15 +28,19 @@
     methods: {
       ...mapMutations(["setUserRegistry"]),
       handleSubmit({accountName, accountPasswd}) {
-        login({accountName, accountPasswd}).then(res => {
-          if (res.code == 200) {
-            let token = res.result.token;
-            let user_info = res.result.user;
-            this.setUserRegistry(user_info);
-            setToken(token)
-            this.$router.push('home')
-          }
-        })
+        setToken('123')
+
+        this.$router.push('home')
+
+        // login({accountName, accountPasswd}).then(res => {
+        //   if (res.code == 200) {
+        //     let token = res.result.token;
+        //     let user_info = res.result.user;
+        //     this.setUserRegistry(user_info);
+        //     setToken(token)
+        //     this.$router.push('home')
+        //   }
+        // })
       }
     }
   }

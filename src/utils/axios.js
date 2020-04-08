@@ -30,12 +30,12 @@ axios.interceptors.request.use(
     const token = getToken();
     token && (config.headers.Authorization = token);
     //开始显示LoadingBar
-    LoadingBar.start();
+    // LoadingBar.start();
     // Spin.show()
     return config;
   },
   error => {
-    LoadingBar.error();
+    // LoadingBar.error();
     return Promise.error(error);
   })
 
@@ -43,10 +43,10 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   response => {
     if (response.status === 200) {
-      LoadingBar.finish();
+      // LoadingBar.finish();
       return Promise.resolve(response);
     } else {
-      LoadingBar.error();
+      // LoadingBar.error();
       return Promise.reject(response);
     }
   },
@@ -117,7 +117,7 @@ axios.interceptors.response.use(
             }
           });
       }
-      LoadingBar.error();
+      // LoadingBar.error();
       return Promise.reject(error.response);
     }
   }

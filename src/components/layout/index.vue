@@ -24,7 +24,7 @@
       <header class="page-layout-header" :class="{'isBox': collapsible}">
         <Icon type="android-menu" @click="collapsible =!collapsible" class="menu"/>
         <Breadcrumb>
-          <BreadcrumbItem to="/">系统首页</BreadcrumbItem>
+          <BreadcrumbItem to="/home">系统首页</BreadcrumbItem>
           <template v-for="item in list">
             <BreadcrumbItem v-if="item.meta.title && item.meta.title !== '系统首页'" :to="item.path">{{item.meta.title}}
             </BreadcrumbItem>
@@ -34,7 +34,7 @@
       <section class="page-content">
         <div class="page-tabs" :class="{'isTabs': collapsible}">
           <div class="page-tabs-main">
-            <ivu-tabs />
+            <ivu-tabs/>
           </div>
         </div>
         <div class="page-layout-main">
@@ -109,7 +109,7 @@
         }
         this.handleScroll(delta)
       },
-      handleScroll (offset) {
+      handleScroll(offset) {
         const outerWidth = this.$refs.scrollOuter.offsetWidth
         const bodyWidth = this.$refs.scrollBody.offsetWidth
         if (offset > 0) {
@@ -129,6 +129,11 @@
     },
     watch: {
       '$route'(newRoute) {
+        console.log(newRoute);
+        let index = {}
+        index.meta = newRoute.meta
+        index.name = newRoute.name
+        localStorage.setItem('routeData', JSON.stringify(index))
         this.getBreadcrumb()
         const {name, query, params, meta} = newRoute
         this.addTag({
