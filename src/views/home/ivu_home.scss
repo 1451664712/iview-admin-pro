@@ -1,0 +1,124 @@
+#ivu_home {
+  position: relative;
+}
+
+#list {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  z-index: 2;
+
+  li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    min-width: 80px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}
+
+#drag-box {
+  //margin-top: 60px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 580px;
+  border-radius: 4px;
+  background-image: url("../../assets/images/drag-bg.png");
+
+  .node {
+    position: absolute;
+    min-width: 140px;
+    height: 38px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+
+    .node-txt {
+      padding: 10px 0;
+      min-width: 102px;
+      text-align: center;
+      user-select: none;
+    }
+
+    .node-edit {
+      padding: 10px 0;
+      width: 36px;
+      background-image: url('../../assets/images/edit.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+
+    .node-close {
+      position: absolute;
+      left: -10px;
+      top: -10px;
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background: url('../../assets/images/close.png');
+    }
+  }
+}
+
+#drag-ul {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 62px;
+  //float: left;
+  background: #F4F5F7;
+  padding: 10px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    //float: left;
+    position: relative;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 0 12px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    border: 1px solid #8F8BEA;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #8F8BEA;
+    user-select: none;
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      display: inline-block;
+      min-width: 18px;
+      height: 18px;
+      line-height: 17px;
+      border-radius: 50%;
+      font-size: 12px;
+      background: #8F8BEA;
+      color: #ffffff;
+      text-align: center;
+    }
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}

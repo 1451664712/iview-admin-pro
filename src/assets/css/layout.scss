@@ -1,0 +1,99 @@
+// 左侧菜单样式
+$primary-color: #191a23;
+.page-home {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  background: #f5f7f9;
+
+  .page-layout-sider {
+    width: 256px;
+    min-width: 256px;
+    max-width: 256px;
+    min-height: 100vh;
+    flex: 0 0 256px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 13;
+    background-color: $primary-color;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+    transition: all .2s ease-in-out;
+
+    .page-sider-children {
+      height: 100%;
+
+      .page-sider-logo {
+        height: 63px;
+        line-height: 63px;
+        text-align: center;
+        border-bottom: 1px solid #f8f8f9;
+        overflow: hidden;
+        border-bottom: 1px solid #101117;
+        background-color: $primary-color;
+
+        img {
+          height: 80%;
+          vertical-align: middle;
+        }
+      }
+    }
+
+  }
+
+  .page-layout-inside {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    background-color: #f5f7f9;
+    min-height: 100vh;
+    padding-left: 256px;
+    transition: all .2s ease-in-out;
+    overflow-x: hidden;
+
+    .page-content {
+      flex: auto;
+    }
+  }
+}
+
+//:style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}"
+
+.page-layout-header {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 256px);
+  height: 64px;
+  background: #fff;
+  box-shadow: 0 2px 3px 2px rgba(0, 0, 0, .1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  transition: all .2s ease-in-out;
+}
+
+.page-content {
+  padding-top: 64px;
+  flex: auto;
+}
+
+.page-tabs {
+  width: calc(100% - 256px);
+  position: fixed;
+  right: 0;
+  transition: all .2s ease-in-out;
+  z-index: 3;
+
+  .page-tabs-main {
+    height: 48px;
+    background: #f5f7f9;
+    padding: 6px 0;
+    margin: 0 12px 0 12px;
+  }
+}
+
+.page-layout-main {
+  margin: 48px 24px 24px;
+  flex: auto;
+}

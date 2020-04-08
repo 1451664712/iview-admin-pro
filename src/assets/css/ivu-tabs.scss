@@ -1,0 +1,53 @@
+.ivu-tabs-box {
+  position: relative;
+  height: 100%;
+
+
+  .left_btn, .right_btn {
+    height: 36px;
+    width: 36px;
+    top: 0;
+    line-height: 36px;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .left_btn {
+    left: 0;
+  }
+
+  .right_btn {
+    right: 36px;
+  }
+
+  .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    border-radius: 2px;
+    background: #fff;
+  }
+}
+
+.ivu-tabs {
+  position: relative;
+  height: 100%;
+  //margin: 0 36px;
+  margin-left: 36px;
+  margin-right: 72px;
+
+  .ivu-tabs_scoll {
+    white-space: nowrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left .5s;
+  }
+}
+
+/deep/ .ivu-icon-ios-arrow-down {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+}

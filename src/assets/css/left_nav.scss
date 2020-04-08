@@ -1,0 +1,71 @@
+// 左侧菜单样式
+$primary-color: #191a23;
+
+$dark: #101117;
+
+.ivu-menu-dark {
+  background: $primary-color;
+  width: 100% !important;
+  height: calc(100vh - 63px);
+  overflow-y: auto;
+}
+
+.ivu-menu-dark::-webkit-scrollbar {
+  display: none
+}
+
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-opened {
+  background: $dark;
+}
+
+.ivu-menu-item {
+  background: $dark !important;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+}
+
+.no_children {
+  background: $primary-color !important;
+}
+
+.ivu-menu-item > i {
+  margin-right: 8px;
+}
+
+/deep/ .ivu-menu-item-selected {
+  color: #fff !important;
+  border: none !important;
+  background: #101117 !important;
+}
+
+/deep/ .ivu-menu-submenu-title {
+  background: $primary-color !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 52px !important;
+}
+
+/deep/ .ivu-menu-submenu-title, .ivu-menu-item {
+  overflow: hidden; /*超出部分隐藏*/
+  white-space: nowrap; /*不换行*/
+  text-overflow: ellipsis; /*超出部分文字以...显示*/
+}
+
+/deep/ .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu-title:hover {
+  background: none !important;
+}
+
+/deep/ .ivu-menu-vertical .ivu-menu-submenu-title-icon {
+  margin-left: auto !important;
+}
+
+/deep/ .ivu-menu-submenu-title > .ivu-menu-submenu-title-icon {
+  margin-left: auto;
+  float: inherit;
+  right: 0;
+}
+
+
+
+
