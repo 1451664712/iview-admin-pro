@@ -309,7 +309,7 @@
           // 按钮位置计算
           let left = sLeft - boxLeft - that.dragOffset.x
           let top = sTop - boxTop - that.dragOffset.y
-          that.data.nodeList.push({
+          let json = {
             id: id, // 应用组件ID
             applicationCode: that.dragItem.applicationCode,
             code: that.dragItem.code, // 功能组件ID
@@ -324,9 +324,10 @@
             downFunctionCode: '',
             isProcDefStart: 1, // 是否为起点
             isProcDefEnd: 0 // 是否为结点
-          })
-          setTimeout(() => {
-            that.initContainer(id)
+          }
+          that.data.nodeList.push(json)
+          this.$nextTick(() => {
+            that.init(json)
           })
         }
       })
@@ -344,20 +345,24 @@
           this.navList = result.result
         }
       },
+
       delNode(id) {
         const ins = this.jsPlumb
         ins.remove(id)
       },
+
       initAll() {
         const rl = this.data.nodeList
         rl.map(item => {
-          this.initContainer(item.id)
+          this.init(item)
         })
       },
-      initContainer(id) {
+
+      init(data) {
         const ins = this.jsPlumb
-        const elem = document.getElementById(id)
-        ins.draggable(id, {
+        const elem = document.getElementById(data.id)
+        //  在父区域内
+        ins.draggable(data.id, {
           containment: 'parent',
           grid: [10, 10]
         })
@@ -366,16 +371,15 @@
           isSource: true,
           isTarget: true,
         }
-        ins.ready(function () {
+        ins.ready(() => {
           ins.addEndpoint(elem, {
-            anchor: 'Top',
+            anchors: ['right'],
             allowLoopback: false,
-
           }, common)
-          ins.addEndpoint(elem, {
-            anchors: ['Bottom'],
-            allowLoopback: false,
 
+          ins.addEndpoint(elem, {
+            allowLoopback: false,
+            anchor: 'Left'
           }, common)
         })
         ins.importDefaults({
@@ -398,6 +402,7 @@
         //   maxConnections: 1
         // })
       },
+
       guid() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
           const r = Math.random() * 16 | 0

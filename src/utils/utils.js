@@ -103,6 +103,7 @@ export const getNextRoute = (list, route) => {
   } else {
     const index = list.findIndex(item => routeEqual(item, route))
     const routeJson = JSON.parse(localStorage.routeData)
+    // 关闭非当前路由时
     if (routeJson.name === 'home' || routeJson.name !== route.name) {
       res = routeJson
     } else {
