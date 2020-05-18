@@ -14,7 +14,7 @@ import $ from "jquery";
 import jsPlumb from 'jsplumb'
 Vue.prototype.$jsPlumb = jsPlumb.jsPlumb
 
-
+import 'lib-flexible'
 
 
 Vue.config.productionTip = false

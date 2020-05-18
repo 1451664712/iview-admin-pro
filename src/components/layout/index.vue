@@ -25,8 +25,8 @@
         <Icon type="android-menu" @click="collapsible =!collapsible" class="menu"/>
         <Breadcrumb>
           <BreadcrumbItem to="/home">系统首页</BreadcrumbItem>
-          <template v-for="item in list">
-            <BreadcrumbItem v-if="item.meta.title && item.meta.title !== '系统首页'" :to="item.path">{{item.meta.title}}
+          <template v-for="(item, index) in list">
+            <BreadcrumbItem :key="index" v-if="item.meta.title && item.meta.title !== '系统首页'">{{item.meta.title}}
             </BreadcrumbItem>
           </template>
         </Breadcrumb>
